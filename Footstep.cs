@@ -1,6 +1,5 @@
-namespace Entity.Audio
+namespace Footstep
 {
-    using Sirenix.OdinInspector;
     using UnityEngine;
 
     [AddComponentMenu ("Entity/Audio/Footstep")]
@@ -9,28 +8,23 @@ namespace Entity.Audio
         #region Inspector
         #region Components
 
-        [Title ("Components")]
-
-        [InfoBox("RigidBody/CharacterController is required", InfoMessageType.Warning)]
-        [Tooltip ("Character Controller")]
+        // Components
         [SerializeField]
         private CharacterController character;
 
-        [Tooltip ("Rigid Body")]
+        //Rigidbody
         [SerializeField]
         private Rigidbody rigidBody;
 
-        [Tooltip ("AudioSource to play footstep sounds from")]
+        // AudioSource to play footstep sounds from
         [SerializeField]
-        [Required]
         private AudioSource footstepSource;
 
-        [Tooltip ("Array of footstep soundclips to play")]
+        // Array of footstep soundclips to play
         [SerializeField]
-        [Required]
         private AudioClip[] footstepSounds;
 
-        [Title ("Footstep Settings")]
+        // Footstep Settings
         [Tooltip ("Cooldown (sec) between footsteps")]
         [SerializeField]
         [Min (0.01f)]
@@ -54,49 +48,14 @@ namespace Entity.Audio
         #endregion Settings
 
         #region Debug
-
+        
         private Debug debug;
-
-        [BoxGroup ("Debug")]
-        [Tooltip("Current velocity")]
-        [SerializeField]
-        [ReadOnly]
         private Vector3 velocity;
-
-        [BoxGroup ("Debug")]
-        [Tooltip ("Is being controlled by a Character Controller...")]
-        [SerializeField]
-        [ReadOnly]
         private bool isCharacterControlled;
-
-        [BoxGroup ("Debug")]
-        [Tooltip ("Is walking...")]
-        [SerializeField]
-        [ReadOnly]
         private bool isWalking;
-
-        [BoxGroup ("Debug")]
-        [Tooltip ("Is falling...")]
-        [SerializeField]
-        [ReadOnly]
         private bool isFalling;
-
-        [BoxGroup ("Debug")]
-        [Tooltip ("Is sprinting...")]
-        [SerializeField]
-        [ReadOnly]
         private bool isSprinting;
-
-        [BoxGroup ("Debug")]
-        [Tooltip ("Is currently playing footstep...")]
-        [SerializeField]
-        [ReadOnly]
         private bool isPlayingSound;
-
-        [BoxGroup("Debug")]
-        [ReadOnly]
-        [Tooltip ("Time until the next footstep")]
-        [SerializeField]
         private float timeUntilNextStep;
 
         #endregion Debug
